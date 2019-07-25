@@ -22,13 +22,19 @@ class Instructors extends Person{
     grade(studentObj,subject){
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+    changeGrade(studentObject){
+        let result= Math.floor(Math.random() * (20 - 5)) - 5;
+        studentObject.grade=studentObject.grade+result
+        console.log(`Grades updated by ${this.name}. ${result} points Slytherin!`);
+    }
 };
 class Students extends Person{
     constructor(attr){
         super(attr),
         this.previousBackground=attr.previousBackground,
         this.className=attr.className,
-        this.favSubjects=attr.favSubjects
+        this.favSubjects=attr.favSubjects,
+        this.grade=attr.grade
     }
     listsSubjects(){
         this.favSubjects.forEach((item)=>{console.log(item);});
@@ -38,6 +44,10 @@ class Students extends Person{
     }
     sprintChallenge (subject){
         console.log(`student.name has begun sprint challenge on ${subject}`);
+    }
+    graduate(studentObject){
+        if (studentObject.grade>=70){console.log(`${studentObject.name} can graduate!`);}
+        else {console.log("Not read yet!");};
     }
 };
 //Formerly ProjectManagers
@@ -64,17 +74,17 @@ const instructor = new Instructors({
     catchPhrase: `Don't forget the homies`
 });
 
-const Student = new Students({
+const student = new Students({
     name: 'Jason',
     location: 'New Jersey',
     age: 42,
     previousBackground:"Sales",
     className:"WEB22",
     favInstructor:"All of them",
-    favSubjects:"Python"
-
+    favSubjects:["Python","JavaScript"],
+    grade:60
 });
-const TeamLead = new TeamLeads({
+const teamLead = new TeamLeads({
     name: 'St Lachman',
     location: 'Lambdaville',
     age: 25,
@@ -86,7 +96,34 @@ const TeamLead = new TeamLeads({
 });
 
 instructor.speak();
-console.log({instructor,Student,TeamLead});
+console.log({instructor,student,teamLead});
+instructor.demo("Python");
+instructor.grade(student, "Python");
+student.listsSubjects();
+student.PRAssignment("JavaScript");
+student.sprintChallenge("Web Design");
+teamLead.standUp("#WEB22_seth");
+teamLead.debugsCode(student,"JavaScript");
+//stretch
+console.log(student.grade);
+instructor.changeGrade(student);
+teamLead.changeGrade(student);
 
+//Loop Setup
+let loopFlag=true;
+let maxGrades=50;
+let grading=0;
 
-
+while (loopFlag){
+    if (grading>maxGrades){loopFlag=false;};
+    instructor.changeGrade(student);
+    console.log(`Grade for ${student.name} is now ${student.grade}`);
+    if (student.grade>=70){
+        student.graduate(student);
+        loopFlag=false;
+    } else if (student.grade<1){
+        console.log("Go home, you stink");
+        loopFlag=false;
+    }
+    grading++
+}
