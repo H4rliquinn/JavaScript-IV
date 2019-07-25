@@ -189,16 +189,16 @@ Prototype Refactor
       language: 'Elvish',
       typeOfAttack:[{move:"Fires a vicious fire arrow",damage:6},{move:"Stabs with a hidden blade",damage:4},{move:"Whacks with the bow",damage:2}]
     });
-    console.log(mage.createdAt); // Today's date
-    console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-    console.log(swordsman.healthPoints); // 15
-    console.log(mage.name); // Bruce
-    console.log(swordsman.team); // The Round Table
-    console.log(mage.weapons); // Staff of Shamalama
-    console.log(archer.language); // Elvish
-    console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-    console.log(mage.takeDamage()); // Bruce took damage.
-    console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+    // console.log(mage.createdAt); // Today's date
+    // console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
+    // console.log(swordsman.healthPoints); // 15
+    // console.log(mage.name); // Bruce
+    // console.log(swordsman.team); // The Round Table
+    // console.log(mage.weapons); // Staff of Shamalama
+    // console.log(archer.language); // Elvish
+    // console.log(archer.greet()); // Lilith offers a greeting in Elvish.
+    // console.log(mage.takeDamage()); // Bruce took damage.
+    // console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
   
   
     // Stretch task: 
@@ -216,18 +216,18 @@ Prototype Refactor
     let currRound=0;
   
     //GET READY TO RUUUMMMMMBLLLLLLE!!!
-    while (flag){
-    if (currRound==rounds){flag=false;};
-    if (currRound>0){console.log("*** *** NEW ROUND:"+currRound+" *** ***")}
-    else {console.log("*** *** FIRST ROUND!!! *** ***")};
-    //START OF TURN
-      currentPlayer=turnList.shift();
-      console.log(currentPlayer.name+"'s turn");
-      console.log(currentPlayer.attack());
-      turnList.push(currentPlayer);
-    //END OF TURN
-      if (flag){turnList.forEach(function(item){console.log(`${item.name} has ${item.healthPoints} healthPoints.`);});};
+    // while (flag){
+    // if (currRound==rounds){flag=false;};
+    // if (currRound>0){console.log("*** *** NEW ROUND:"+currRound+" *** ***")}
+    // else {console.log("*** *** FIRST ROUND!!! *** ***")};
+    // //START OF TURN
+    //   currentPlayer=turnList.shift();
+    //   console.log(currentPlayer.name+"'s turn");
+    //   console.log(currentPlayer.attack());
+    //   turnList.push(currentPlayer);
+    // //END OF TURN
+    //   if (flag){turnList.forEach(function(item){console.log(`${item.name} has ${item.healthPoints} healthPoints.`);});};
       
-      currRound++
-    }
+    //   currRound++
+    // }
   
